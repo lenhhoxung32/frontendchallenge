@@ -1,0 +1,81 @@
+<div>
+  <div class="flex flex-col p-4 bg-white rounded-lg md:flex-row md:gap-6 md:p-6 ">
+    <!-- score -->
+    <ml-score direction="vertical" class="hidden md:block " [disable]="isYou" (up)="up.emit(comment.id)"
+      (down)="down.emit(comment.id)" [score]="comment.score">
+    </ml-score>
+    <!-- score -->
+
+    <div class="grid w-full gap-4">
+      <div class="flex items-center gap-4">
+        <!-- avatar -->
+        <img class="w-10 h-10 rounded-full" [src]="avatar" [alt]="user.username" />
+        <!-- end avatar -->
+
+        <div class="flex items-center gap-2">
+          <!-- user name -->
+          <a routerLink="/" class="font-black">{{ user.username }}</a>
+          <!-- end user name -->
+
+          <ng-container *ngIf="isYou">
+            <span class="badge-primary">you</span>
+          </ng-container>
+        </div>
+
+        <!-- created at -->
+        <p class="text-sm md:text-base">{{ comment.createdAtTimestamp | mlTimestampToDateFormat }}</p>
+        <!-- end created at -->
+
+        <!-- actions  desktop-->
+        <ml-comment-actions class="hidden ml-auto md:block" [isYou]="isYou" (reply)="onReply()"
+          (delete)="delete.emit(comment.id)" (edit)="onEdit()">
+        </ml-comment-actions>
+        <!-- end actions desktop-->
+      </div>
+
+      <div *ngIf="!openEditPanel" class="grid w-full gap-4">
+
+        <!-- content -->
+        <ml-content-comment [comment]="comment"></ml-content-comment>
+        <!-- end content -->
+
+        <div class="flex items-center justify-between md:hidden">
+          <!-- score -->
+          <ml-score [disable]="isYou" (up)="up.emit(comment.id)" (down)="down.emit(comment.id)" [score]="comment.score">
+          </ml-score>
+          <!-- end score -->
+
+          <!-- actions -->
+          <ml-comment-actions [isYou]="isYou" (reply)="onReply()" (delete)="delete.emit(comment.id)" (edit)="onEdit()">
+          </ml-comment-actions>
+          <!-- end actions -->
+        </div>
+
+      </div>
+
+
+      <!-- edit comment -->
+      <ml-edit-comment (edit)="onUpdate($event)" [comment]="comment" *ngIf="openEditPanel">
+        <ml-score class="md:hidden" [disable]="isYou" (up)="up.emit(comment.id)" (down)="down.emit(comment.id)"
+          [score]="comment.score">
+        </ml-score>
+      </ml-edit-comment>
+      <!-- end edit comment -->
+    </div>
+  </div>
+
+
+  <!-- reply panel-->
+  <ml-enter-comment submitButtonName="reply" *ngIf="replyingTo" [preWrite]="replyingTo" [focus]="true" [user]="myUser"
+    (enter)="sendReply($event)" class="block mt-4">
+  </ml-enter-comment>
+  <!-- end reply panel-->
+
+  <!-- replies -->
+  <div class="grid gap-4 pl-4 mt-4 border-l-2 border-gray-200 md:pl-8 md:ml-8 lg:ml-10 lg:pl-10 lg:mt-6">
+    <ml-comment-list (reply)="reply.emit($event)" (delete)="delete.emit($event)" (up)="up.emit($event)"
+      (down)="down.emit($event)" (edit)="edit.emit($event)" [myUser]="myUser" [comments]="comment.replies">
+    </ml-comment-list>
+  </div>
+  <!-- end replies -->
+</div>
