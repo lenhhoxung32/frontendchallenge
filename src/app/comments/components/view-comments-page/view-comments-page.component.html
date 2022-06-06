@@ -1,5 +1,5 @@
-<main class="mt-6 md:mt-10" *ngIf="user">
-  <div class="container max-w-4xl">
+<main class="mt-6 ml-view-comments-page__container" ngClass.gt-md="mt-10" *ngIf="user" fxLayout="row" fxLayoutAlign="center">
+  <div fxFlex="70" fxLayout="column" ngClass.gt-md="mt-10">
     <!-- comment list -->
     <ml-comment-list (reply)="addReply($event)" (delete)="requestDeleteComment($event)" (up)="upScore($event)"
       (down)="downScore($event)" (edit)="editComment($event)" [myUser]="user" [comments]="(comments$ | async)!">

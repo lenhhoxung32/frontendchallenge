@@ -6,6 +6,7 @@ import { DialogModule } from '@ml/shared/dialog';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { CommentsRoutingModule } from './comments-routing.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   ButtonComponent,
   CommentActionsComponent,
@@ -46,6 +47,7 @@ const PIPES = [
     CommonModule,
     CommentsRoutingModule,
     ReactiveFormsModule,
+    FlexLayoutModule,
     DialogModule,
     StoreModule.forFeature(
       fromComments.commentsFeatureKey,

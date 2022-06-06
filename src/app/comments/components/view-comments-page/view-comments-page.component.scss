@@ -1,0 +1,9 @@
+@import './../../../../variables.scss';
+
+.ml-view-comments-page {
+  &__container {
+    background: $neutral3;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

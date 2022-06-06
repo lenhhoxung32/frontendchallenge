@@ -1,89 +1,228 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
 
-@layer base {
-  :root {
-    // colors
-    // Primary
-    --moderate-blue: 238, 40%, 52%;
-    --soft-red: 358, 79%, 66%;
-    --light-grayish-blue: 239, 57%, 85%;
-    --pale-red: 357, 100%, 86%;
-
-    // neutral
-    --dark-blue: 212, 24%, 26%;
-    --grayish-blue: 211, 10%, 45%;
-    --light-gray: 223, 19%, 93%;
-    --very-light-gray: 228, 33%, 97%;
-    --white: 0, 0%, 100%;
-
-    ////////////////////
-    // text colors /////
-    ////////////////////
-    --text-fill: var(--dark-blue);
-    --text-muted: var(--grayish-blue);
-    --text-inverted: var(--gray-blue);
-    --text-danger: var(--soft-red);
-
-    /////////////////////////////
-    // background colors /////////
-    /////////////////////////////
-    --bg-fill: var(--very-light-gray);
-    --bg-elements: var(--white);
-    --bg-muted: var(--light-gray);
-    --bg-muted-900: var(--grayish-blue);
-    --bg-primary: var(--moderate-blue);
-    --bg-danger: var(--soft-red);
-  }
-
-  //make default form look nice
-  [type="text"],
-  [type="email"],
-  [type="url"],
-  [type="password"],
-  [type="number"],
-  [type="date"],
-  [type="datetime-local"],
-  [type="month"],
-  [type="search"],
-  [type="tel"],
-  [type="time"],
-  [type="week"],
-  [multiple],
-  textarea,
-  select {
-    @apply w-full border-gray-300 rounded-lg shadow-sm focus:border-indigo-500 focus:ring-indigo-500;
-  }
-
-  [type="checkbox"],
-  [type="radio"] {
-    @apply border-gray-300 rounded text-indigo-600 focus:ring-indigo-500;
-  }
+@import './variables.scss';
+@font-face {
+  font-family: "Rubik";
+  src: url("https://fonts.google.com/specimen/Rubik");
 }
 
-input.ng-invalid.ng-touched {
-  @apply border-2 border-danger;
+
+body {
+  font-family: 'Rubik', Arial, sans-serif;
+  font-weight: $font-weight-normal;
 }
 
-@layer components {
-  .badge-primary {
-    @apply bg-primary text-white font-bold py-1 px-2 rounded-sm text-xs md:text-sm;
-  }
+p {
+  font-size: $font-size-normal;
+}
 
-  .btn {
-    @apply inline-block uppercase text-sm tracking-wider text-white font-semibold rounded-lg px-6 py-3 shadow-lg hover:opacity-50 disabled:opacity-25 md:px-6;
-  }
 
-  .btn-primary {
-    @apply bg-primary;
-  }
+.font-black {
+	color: $neutral1;
+}
 
-  .btn-muted {
-    @apply bg-muted-900 tracking-wider;
-  }
+.bg-white {
+  background: $neutral5;
+}
+.bg-muted {
+	background: $neutral3;
+}
 
-  .btn-danger {
-    @apply bg-danger tracking-wider;
-  }
+.badge-primary {
+	background-color: $primary1;
+	color: $neutral5;
+	padding: 2px 6px;
+	font-size: $font-size-small;
+}
+textarea {
+	border: 1px solid $neutral3;
+    padding: 10px 16px;
+    border-radius: 4px;
+	font-family: inherit;
+}
+
+.font-bold {
+	font-weight: $font-weight-heavy;
+}
+.text-lg {
+	font-size: $font-size-large;
+}
+.text-sm {
+	font-size: $font-size-small;
+}
+
+.text-base {
+	font-size: $font-size-normal;
+}
+
+.text-muted {
+	color: $neutral2;
+}
+
+.text-danger {
+	color: $primary2;
+}
+
+.text-primary {
+	color: $primary1;
+}
+.text-gray-400 {
+	color: $neutral2;
+	font-weight: $font-weight-light;
+}
+
+.rounded-md {
+  border-radius: 4px;
+}
+.rounded-lg {
+  border-radius: 8px;
+}
+
+.rounded-full {
+  border-radius: 50%;
+}
+
+.flex {
+	display: flex;
+}
+.inline-flex {
+	display: inline-flex;
+}
+.items-center {
+	align-items: center;
+}
+.justify-between {
+	justify-content: between;
+}
+.justify-end {
+	justify-end: flex-end;
+}
+
+.hidden {
+	display: none;
+}
+
+.block {
+	display: block;
+}
+
+.w-full {
+	width: 100%;
+}
+
+
+.mt-4 {
+	margin-top: 4px;
+}
+.mt-6{
+	margin-top: 6px;
+}
+.mt-10{
+	margin-top: 10px;
+}
+
+.mb-4 {
+	margin-bottom: 4px;
+}
+.mb-6{
+	margin-bottom: 6px;
+}
+.mb-10{
+	margin-bottom: 10px;
+}
+.mb-20{
+	margin-bottom: 20px;
+}
+.mb-40{
+	margin-bottom: 40px;
+}
+
+.ml-auto {
+	margin-left: auto;
+}
+.ml-8{
+	margin-left: 8px;
+}
+.ml-10{
+	margin-left: 10px;
+}
+
+.pl-4 {
+	padding-left: 4px;
+}
+.pl-8 {
+	padding-left: 8px;
+}
+.pl-10 {
+	padding-left: 10px;
+}
+
+.px-2 {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+.px-4 {
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.p-2 {
+  padding: 2px;
+}
+.p-4 {
+  padding: 4px;
+}
+.p-6 {
+  padding: 6px;
+}
+
+.w-10 {
+}
+
+.h-10 {
+
+}
+.min-h-10 {
+}
+.min-w-10 {
+}
+
+.hover-opacity-50:hover {
+	opacity: 0.5;
+}
+.hover-text-primary:hover {
+	color: $primary1;
+}
+.disabled-opacity-20[disabled] {
+	opacity: 0.2;
+}
+
+button {
+  border-radius: 8px;
+  border:none;
+  cursor: pointer;
+  background: transparent;
+  font-weight: $font-weight-heavy;
+}
+
+.btn {
+
+	&.btn-danger {
+    color: $primary2;
+	}
+	&.btn-primary {
+    color: white;
+    background-color: $primary1;
+    text-transform: uppercase;
+    min-width: 100px;
+    min-height: 40px;
+	}
+	&.btn-muted {
+    color: $primary3;
+	}
+}
+.fixed {
+	position: fixed;
+}
+.resize-none {
+	resize: none;
 }

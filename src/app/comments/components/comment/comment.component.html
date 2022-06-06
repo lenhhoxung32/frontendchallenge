@@ -1,18 +1,19 @@
 <div>
-  <div class="flex flex-col p-4 bg-white rounded-lg md:flex-row md:gap-6 md:p-6 ">
+  <div fxLayout="column" fxLayout.gt-md="row" fxLayoutGap.md="6px" class="p-4 bg-white rounded-lg"
+    ngClass.md="p-6">
     <!-- score -->
-    <ml-score direction="vertical" class="hidden md:block " [disable]="isYou" (up)="up.emit(comment.id)"
+    <ml-score direction="vertical" class="hidden" ngClass.gt-md="block" [disable]="isYou" (up)="up.emit(comment.id)"
       (down)="down.emit(comment.id)" [score]="comment.score">
     </ml-score>
     <!-- score -->
 
-    <div class="grid w-full gap-4">
-      <div class="flex items-center gap-4">
+    <div fxLayout="column" fxLayoutGap="6px" class="w-full">
+      <div fxLayout="row" fxLayoutGap="6px" class="flex items-center">
         <!-- avatar -->
         <img class="w-10 h-10 rounded-full" [src]="avatar" [alt]="user.username" />
         <!-- end avatar -->
 
-        <div class="flex items-center gap-2">
+        <div fxLayout="row" fxLayoutGap="6px" class="flex items-center">
           <!-- user name -->
           <a routerLink="/" class="font-black">{{ user.username }}</a>
           <!-- end user name -->
@@ -23,23 +24,23 @@
         </div>
 
         <!-- created at -->
-        <p class="text-sm md:text-base">{{ comment.createdAtTimestamp | mlTimestampToDateFormat }}</p>
+        <p  class="text-sm text-muted" ngClass.gt-md="text-base">{{ comment.createdAtTimestamp | mlTimestampToDateFormat }}</p>
         <!-- end created at -->
 
         <!-- actions  desktop-->
-        <ml-comment-actions class="hidden ml-auto md:block" [isYou]="isYou" (reply)="onReply()"
+        <ml-comment-actions class="hidden" ngClass.gt-md="block" [isYou]="isYou" (reply)="onReply()"
           (delete)="delete.emit(comment.id)" (edit)="onEdit()">
         </ml-comment-actions>
         <!-- end actions desktop-->
       </div>
 
-      <div *ngIf="!openEditPanel" class="grid w-full gap-4">
+      <div *ngIf="!openEditPanel" class="w-full gap-4">
 
         <!-- content -->
         <ml-comment-content [comment]="comment"></ml-comment-content>
         <!-- end content -->
 
-        <div class="flex items-center justify-between md:hidden">
+        <div class="flex items-center justify-between" ngClass.gt-md="hidden">
           <!-- score -->
           <ml-score [disable]="isYou" (up)="up.emit(comment.id)" (down)="down.emit(comment.id)" [score]="comment.score">
           </ml-score>
@@ -56,7 +57,7 @@
 
       <!-- edit comment -->
       <ml-edit-comment (edit)="onUpdate($event)" [comment]="comment" *ngIf="openEditPanel">
-        <ml-score class="md:hidden" [disable]="isYou" (up)="up.emit(comment.id)" (down)="down.emit(comment.id)"
+        <ml-score  ngClass.gt-md="hidden" [disable]="isYou" (up)="up.emit(comment.id)" (down)="down.emit(comment.id)"
           [score]="comment.score">
         </ml-score>
       </ml-edit-comment>
@@ -72,7 +73,7 @@
   <!-- end reply panel-->
 
   <!-- replies -->
-  <div class="grid gap-4 pl-4 mt-4 border-l-2 border-gray-200 md:pl-8 md:ml-8 lg:ml-10 lg:pl-10 lg:mt-6">
+  <div class="pl-4 mt-4" ngClass.md="pl-8 ml-8" ngClass.gt-lg="ml-10 pl-10 mt-6">
     <ml-comment-list (reply)="reply.emit($event)" (delete)="delete.emit($event)" (up)="up.emit($event)"
       (down)="down.emit($event)" (edit)="edit.emit($event)" [myUser]="myUser" [comments]="comment.replies">
     </ml-comment-list>

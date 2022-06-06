@@ -1,18 +1,19 @@
-<div class="inline-flex items-center gap-2 bg-muted p-2 rounded-lg {{
-        direction === 'vertical' ? 'flex-col' : 'flex-row'
-      }} ">
+<div class="inline-flex items-center bg-muted p-6 rounded-lg" [fxLayout]="direction === 'vertical' ? 'column' : 'row'" [fxLayoutGap]="direction === 'vertical' ? '' : '10px'">
   <!-- plus -->
   <button [disabled]="disablePlus" (click)="upScore()" type="button"
-    class="text-gray-400 px-2 disabled:opacity-20 hover:text-primary">
+    class="text-gray-400 px-2 disabled-opacity-20 hover-text-primary">
     <i class="fas fa-plus"></i>
   </button>
   <!-- end plus -->
 
-  <p class="text-primary text-lg font-black">{{ score }}</p>
+  <p class="text-primary text-lg font-black ml-score__score" [ngClass]="{
+    'mt-6': direction !== 'vertical',
+    'mb-6': direction !== 'vertical'
+  }">{{ score }}</p>
 
   <!-- minus -->
   <button [disabled]="disableMinus" (click)="downScore()" type="button"
-    class="text-gray-400 px-2 disabled:opacity-20 hover:text-primary">
+    class="text-gray-400 px-2 disabled-opacity-20 hover-text-primary">
     <i class="fas fa-minus"></i>
   </button>
   <!-- end minus -->
