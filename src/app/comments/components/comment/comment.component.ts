@@ -12,6 +12,7 @@ import { User } from '@ml/comments/models/user.model';
   selector: 'ml-comment',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './comment.component.html',
+  styleUrls: ['./comment.component.scss'],
 })
 export class CommentComponent {
   @Input() comment!: Comment;

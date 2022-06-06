@@ -1,16 +1,16 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit($event)"
   fxLayout="column" fxLayout.gt-md="row" fxLayoutGap="8px" fxLayoutGap.md="5px"
-  class="bg-white p-4 mb-20 rounded-md" ngClass.gt-md="p-6">
+  class="bg-white p-20 mb-20 rounded-md" ngClass.gt-md="p-6">
   <!-- user -->
   <a *ngIf="user" class="hidden" ngClass.gt-md="block" routerLink="/">
     <div>
-      <img class="min-w-10 min-h-10 rounded-full" [src]="avatar" [alt]="user.username" />
+      <img class="w-50 h-50 rounded-full" [src]="avatar" [alt]="user.username" />
     </div>
   </a>
   <!-- end user -->
 
-  <textarea #textarea formControlName="comment" placeholder="Add a comment.." cols="30" rows="3"
-    class="block resize-none"></textarea>
+  <textarea fxFlex #textarea formControlName="comment" placeholder="Add a comment.." cols="30" rows="3"
+    class="block resize-none  min-h-80"></textarea>
 
   <!-- send button -->
   <div class="hidden" ngClass.gt-md="block">
@@ -23,7 +23,7 @@
   <div class="flex justify-between items-center" ngClass.gt-md="hidden">
     <!-- user -->
     <a *ngIf="user" routerLink="/">
-      <img class="w-10 h-10 rounded-full" [src]="avatar" [alt]="user.username" />
+      <img class="w-50 h-50 rounded-full" ngClass.sm="w-30 w-30" [src]="avatar" [alt]="user.username" />
     </a>
     <!-- end user -->
 

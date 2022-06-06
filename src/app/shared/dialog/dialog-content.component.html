@@ -1,0 +1,5 @@
+<div *ngIf="open" @fadeInOut class="fixed dialog-content__background place-content-center">
+  <div @scaleInOut class="dialog-content__container" fxLayout="row" fxLayoutAlign="center center">
+    <ng-content class="block"></ng-content>
+  </div>
+</div>

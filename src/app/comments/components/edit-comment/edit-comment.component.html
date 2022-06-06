@@ -1,4 +1,4 @@
-<div class="grid gap-4">
+<div fxLayoutGap="4px">
   <textarea
     class="overflow-visible"
     [focus]="true"
@@ -6,7 +6,7 @@
     cols="30"
     rows="6"
   ></textarea>
-  <div class="flex items-center justify-between md:justify-end">
+  <div class="flex items-center justify-between" ngClass.gt-md="justify-end">
     <!-- use to inject score component -->
     <ng-content></ng-content>
     <!-- end use to inject score component -->

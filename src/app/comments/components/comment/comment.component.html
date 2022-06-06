@@ -1,6 +1,6 @@
-<div>
-  <div fxLayout="column" fxLayout.gt-md="row" fxLayoutGap.md="6px" class="p-4 bg-white rounded-lg"
-    ngClass.md="p-6">
+<div fxLayout="column" fxLayoutGap="6px" >
+  <div fxLayout="column" fxLayout.gt-md="row" fxLayoutGap.gt-md="20px" class="p-16 bg-white rounded-lg"
+    ngClass.md="p-20">
     <!-- score -->
     <ml-score direction="vertical" class="hidden" ngClass.gt-md="block" [disable]="isYou" (up)="up.emit(comment.id)"
       (down)="down.emit(comment.id)" [score]="comment.score">
@@ -10,7 +10,7 @@
     <div fxLayout="column" fxLayoutGap="6px" class="w-full">
       <div fxLayout="row" fxLayoutGap="6px" class="flex items-center">
         <!-- avatar -->
-        <img class="w-10 h-10 rounded-full" [src]="avatar" [alt]="user.username" />
+        <img class="w-30 h-30 rounded-full" [src]="avatar" [alt]="user.username" />
         <!-- end avatar -->
 
         <div fxLayout="row" fxLayoutGap="6px" class="flex items-center">
@@ -28,7 +28,7 @@
         <!-- end created at -->
 
         <!-- actions  desktop-->
-        <ml-comment-actions class="hidden" ngClass.gt-md="block" [isYou]="isYou" (reply)="onReply()"
+        <ml-comment-actions fxFlex fxLayoutAlign="end center" class="hidden" ngClass.gt-md="block" [isYou]="isYou" (reply)="onReply()"
           (delete)="delete.emit(comment.id)" (edit)="onEdit()">
         </ml-comment-actions>
         <!-- end actions desktop-->
@@ -73,7 +73,7 @@
   <!-- end reply panel-->
 
   <!-- replies -->
-  <div class="pl-4 mt-4" ngClass.md="pl-8 ml-8" ngClass.gt-lg="ml-10 pl-10 mt-6">
+  <div class="pl-8 pt-8 mt-4 ml-8 ml-comment__replies" ngClass.gt-md="pl-16 ml-16" *ngIf="comment.replies?.length">
     <ml-comment-list (reply)="reply.emit($event)" (delete)="delete.emit($event)" (up)="up.emit($event)"
       (down)="down.emit($event)" (edit)="edit.emit($event)" [myUser]="myUser" [comments]="comment.replies">
     </ml-comment-list>

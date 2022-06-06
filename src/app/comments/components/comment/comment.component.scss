@@ -1,0 +1,7 @@
+@import './../../../shared/styles/variables.scss';
+
+.ml-comment {
+  &__replies {
+    border-left: 2px solid $neutral3;
+  }
+}
