@@ -10,7 +10,7 @@ import {
   ViewChild
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '@ml/auth/models';
+import { User } from '../models/user.model';
 import { persist } from '../validators';
 
 @Component({

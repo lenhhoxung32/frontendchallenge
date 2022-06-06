@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthModule } from './auth';
 import { AppComponent } from './core/containers/app.component';
 import { CoreModule } from './core/core.module';
 import { metaReducers, ROOT_REDUCERS } from './reducers';
@@ -18,7 +17,6 @@ import { metaReducers, ROOT_REDUCERS } from './reducers';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    AuthModule,
     CoreModule,
     StoreModule.forRoot(ROOT_REDUCERS, {
       metaReducers,

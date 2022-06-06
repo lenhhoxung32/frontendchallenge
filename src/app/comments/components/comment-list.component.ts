@@ -13,9 +13,9 @@ import {
   Input,
   Output
 } from '@angular/core';
-import { User } from '@ml/auth/models';
 import { slideIn, slideOut } from '@ml/shared/animations';
 import { Comment, Edit, ReplyDto } from '../models';
+import { User } from '../models/user.model';
 
 @Component({
   selector: 'ml-comment-list',

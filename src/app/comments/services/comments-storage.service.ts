@@ -1,8 +1,8 @@
 import { Inject, Injectable, InjectionToken } from '@angular/core';
-import { User } from '@ml/auth/models';
 import { Comment, Edit, ReplyDto } from '@ml/comments/models';
-import { fakeData } from '@ml/comments/services/data';
+import { testData } from '@ml/comments/services/data';
 import { forkJoin, map, Observable, of, tap, throwError } from 'rxjs';
+import { User } from '../models/user.model';
 import { CommentsService } from './comments.service';
 
 export function storageFactory() {
@@ -36,7 +36,7 @@ export class CommentsStorageService implements CommentsService {
     return this.supported().pipe(
       map(() => this.storage.getItem(this.commentsKey)),
       map((value: string | null) =>
-        value ? JSON.parse(value) : fakeData.comments
+        value ? JSON.parse(value) : testData.comments
       )
     );
   }

@@ -5,8 +5,8 @@ import {
   Input,
   Output
 } from '@angular/core';
-import { User } from '@ml/auth/models';
 import { Comment, Edit, ReplyDto } from '@ml/comments/models';
+import { User } from '@ml/comments/models/user.model';
 
 @Component({
   selector: 'ml-comment',

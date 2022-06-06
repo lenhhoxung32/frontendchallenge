@@ -1,7 +1,7 @@
-import { User } from '@ml/auth/models';
 import { Comment } from '@ml/comments/models';
+import { User } from '../models/user.model';
 
-export const fakeData: { currentUser: User; comments: Comment[] } = {
+export const testData: { currentUser: User; comments: Comment[] } = {
   currentUser: {
     image: {
       png: 'assets/images/avatars/image-juliusomo.png',

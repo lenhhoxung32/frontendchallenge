@@ -1,19 +1,18 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { LoginPageActions } from '@ml/auth/actions';
-import { User } from '@ml/auth/models';
-import * as fromAuth from '@ml/auth/reducers';
 import { Comment, Edit, ReplyDto } from '@ml/comments/models';
 import * as fromComments from '@ml/comments/reducers';
 import { slideIn } from '@ml/shared/animations';
 import { Store } from '@ngrx/store';
 import { map, Observable, take } from 'rxjs';
 import { CommentsPageActions } from '../actions';
+import { User } from '../models/user.model';
+import { testData } from '../services/data';
 
 @Component({
   selector: 'ml-view-comments-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <main class="mt-6 md:mt-10" *ngIf="user$ | async as user">
+    <main class="mt-6 md:mt-10" *ngIf="user">
       <div class="container max-w-4xl">
         <!-- comment list -->
         <ml-comment-list
@@ -50,21 +49,18 @@ import { CommentsPageActions } from '../actions';
 })
 export class ViewCommentsPageComponent implements OnInit {
   comments$!: Observable<Comment[]>;
-  user$!: Observable<User | null>;
+  user: User;
   openDeletePopup$!: Observable<boolean>;
   deleteId$!: Observable<number | undefined>;
 
   constructor(private readonly _store: Store) {
     this.comments$ = _store.select(fromComments.selectAllComments);
-    this.user$ = _store.select(fromAuth.selectUser);
+    this.user = testData.currentUser;
     this.deleteId$ = _store.select(fromComments.selectDeleteId);
     this.openDeletePopup$ = this.deleteId$.pipe(map((id) => !!id));
   }
 
   ngOnInit(): void {
-    this._store.dispatch(
-      LoginPageActions.login({ credentials: { username: 'fake' } })
-    );
     this._store.dispatch(CommentsPageActions.enter());
   }
 
@@ -84,10 +80,7 @@ export class ViewCommentsPageComponent implements OnInit {
   }
 
   addComment(content: string) {
-    this.user$.pipe(take(1)).subscribe((user) => {
-      if (!user) return;
-      this._store.dispatch(CommentsPageActions.addComment({ user, content }));
-    });
+    this._store.dispatch(CommentsPageActions.addComment({ user: this.user, content }));
   }
 
   addReply(replyDto: ReplyDto) {

@@ -1,4 +1,4 @@
-import { User } from '@ml/auth/models';
+import { User } from "./user.model";
 
 // Replay Data Transfer Object
 export interface ReplyDto {

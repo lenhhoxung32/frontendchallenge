@@ -1,6 +1,6 @@
-import { User } from '@ml/auth/models';
 import { createAction, props } from '@ngrx/store';
 import { Edit, ReplyDto } from '@ml/comments/models';
+import { User } from '../models/user.model';
 
 export const enter = createAction('[Comments Page] Enter');
 

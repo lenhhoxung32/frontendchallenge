@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '@ml/auth/models';
 import { Comment, Edit, ReplyDto } from '@ml/comments/models';
 import { Observable } from 'rxjs';
+import { User } from '../models/user.model';
 import { CommentsService } from './comments.service';
 
 @Injectable({ providedIn: 'root' })

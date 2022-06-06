@@ -1,6 +1,6 @@
-import { User } from '@ml/auth/models';
 import { Comment, Edit, ReplyDto } from '@ml/comments/models';
 import { Observable } from 'rxjs';
+import { User } from '../models/user.model';
 
 export interface CommentsService {
   getComments(): Observable<Comment[]>;
