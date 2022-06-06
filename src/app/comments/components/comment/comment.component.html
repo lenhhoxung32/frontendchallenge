@@ -73,7 +73,7 @@
   <!-- end reply panel-->
 
   <!-- replies -->
-  <div class="pl-8 pt-8 mt-4 ml-8 ml-comment__replies" ngClass.gt-md="pl-16 ml-16" *ngIf="comment.replies?.length">
+  <div class="pl-16 pt-8 mt-4 ml-16 ml-comment__replies" ngClass.gt-md="pl-32 ml-32" *ngIf="comment.replies?.length">
     <ml-comment-list (reply)="reply.emit($event)" (delete)="delete.emit($event)" (up)="up.emit($event)"
       (down)="down.emit($event)" (edit)="edit.emit($event)" [myUser]="myUser" [comments]="comment.replies">
     </ml-comment-list>
