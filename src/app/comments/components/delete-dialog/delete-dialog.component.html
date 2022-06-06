@@ -1,0 +1,6 @@
+<ml-dialog-ng-content class="fixed" [open]="open">
+  <ml-dialog
+    (confirmed)="deleted.emit($event)"
+    [dialog]="dialog"
+  ></ml-dialog>
+</ml-dialog-ng-content>

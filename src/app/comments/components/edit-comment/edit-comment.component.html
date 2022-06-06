@@ -1,0 +1,25 @@
+<div class="grid gap-4">
+  <textarea
+    class="overflow-visible"
+    [focus]="true"
+    [formControl]="formControl"
+    cols="30"
+    rows="6"
+  ></textarea>
+  <div class="flex items-center justify-between md:justify-end">
+    <!-- use to inject score component -->
+    <ng-content></ng-content>
+    <!-- end use to inject score component -->
+
+    <!-- update button -->
+    <button
+      [disabled]="formControl.invalid"
+      (click)="onUpdate()"
+      type="button"
+      class="btn btn-primary"
+    >
+      Update
+    </button>
+    <!-- end update button -->
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<main class="mt-6 md:mt-10" *ngIf="user">
+  <div class="container max-w-4xl">
+    <!-- comment list -->
+    <ml-comment-list (reply)="addReply($event)" (delete)="requestDeleteComment($event)" (up)="upScore($event)"
+      (down)="downScore($event)" (edit)="editComment($event)" [myUser]="user" [comments]="(comments$ | async)!">
+    </ml-comment-list>
+    <!-- end comment list -->
+
+    <!-- enter comment -->
+    <ml-enter-comment @slideIn (enter)="addComment($event)" class="block mt-10 mb-40" [user]="user"></ml-enter-comment>
+    <!-- end enter comment -->
+  </div>
+
+  <!-- delete dialog -->
+  <ml-delete-dialog class="fixed" [open]="(openDeletePopup$ | async)!" (deleted)="onConfirmDelete($event)">
+  </ml-delete-dialog>
+  <!-- end delete dialog -->
+</main>

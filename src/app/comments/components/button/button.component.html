@@ -1,0 +1,7 @@
+<button [disabled]="disable" type="button" class="font-black text-sm inline-flex gap-2 items-center {{
+        textColor
+      }}  duration-150 hover:opacity-50">
+  <img [src]="src" [alt]="name" />
+
+  <span>{{ name | titlecase }}</span>
+</button>

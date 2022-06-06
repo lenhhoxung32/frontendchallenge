@@ -12,13 +12,13 @@ import {
   CommentComponent,
   CommentListComponent,
   ConfirmDeleteComponent,
-  ContentCommentComponent,
+  CommentContentComponent,
   DeletePopupComponent,
   EditCommentComponent,
   EnterCommentComponent,
   ScoreComponent
 } from './components';
-import { ViewCommentsPageComponent } from './containers';
+import { ViewCommentsPageComponent } from './components/view-comments-page/view-comments-page.component';
 import { FocusDirective } from './directives';
 import { CommentEffects } from './effects';
 import { MlTimestampToDateFormatPipe } from './pipes/mlTimestampToDateFormat.pipe';
@@ -33,11 +33,11 @@ const COMPONENTS = [
   ConfirmDeleteComponent,
   EditCommentComponent,
   FocusDirective,
-  ContentCommentComponent,
+  CommentContentComponent,
   CommentActionsComponent,
+  ViewCommentsPageComponent
 ];
 
-const CONTAINERS = [ViewCommentsPageComponent];
 const PIPES = [
   MlTimestampToDateFormatPipe
 ]
@@ -53,6 +53,6 @@ const PIPES = [
     ),
     EffectsModule.forFeature([CommentEffects]),
   ],
-  declarations: [COMPONENTS, CONTAINERS, PIPES],
+  declarations: [COMPONENTS, PIPES],
 })
 export class CommentsModule {}

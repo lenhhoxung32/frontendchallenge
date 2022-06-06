@@ -1,0 +1,15 @@
+<div @listAnimation class="grid gap-4">
+  <ng-container *ngFor="let comment of comments; trackBy: identifyComment">
+    <ml-comment
+      @slideOut
+      @slideIn
+      [myUser]="myUser"
+      [comment]="comment"
+      (reply)="reply.emit($event)"
+      (delete)="delete.emit($event)"
+      (edit)="edit.emit($event)"
+      (up)="up.emit($event)"
+      (down)="down.emit($event)"
+    ></ml-comment>
+  </ng-container>
+</div>
