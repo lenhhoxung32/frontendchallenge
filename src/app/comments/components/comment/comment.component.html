@@ -8,12 +8,12 @@
     <!-- score -->
 
     <div fxLayout="column" fxLayoutGap="6px" class="w-full">
-      <div fxLayout="row" fxLayoutGap="6px" class="flex items-center">
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="6px">
         <!-- avatar -->
         <img class="w-30 h-30 rounded-full" [src]="avatar" [alt]="user.username" />
         <!-- end avatar -->
 
-        <div fxLayout="row" fxLayoutGap="6px" class="flex items-center">
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="6px">
           <!-- user name -->
           <a routerLink="/" class="font-black">{{ user.username }}</a>
           <!-- end user name -->
@@ -40,7 +40,7 @@
         <ml-comment-content [comment]="comment"></ml-comment-content>
         <!-- end content -->
 
-        <div class="flex items-center justify-between" ngClass.gt-md="hidden">
+        <div fxLayout="row" fxLayoutAlign="space-between center" ngClass.gt-md="hidden">
           <!-- score -->
           <ml-score [disable]="isYou" (up)="up.emit(comment.id)" (down)="down.emit(comment.id)" [score]="comment.score">
           </ml-score>

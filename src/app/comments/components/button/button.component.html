@@ -1,6 +1,6 @@
-<button [disabled]="disable" type="button" class="icon-btn font-black text-base inline-flex items-center {{
+<button [disabled]="disable" type="button" class="icon-btn font-black text-base {{
         textColor
-      }}  hover-opacity-50" fxLayoutGap="2px">
+      }}  hover-opacity-50" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="2px">
   <img [src]="src" [alt]="name" />
 
   <span>{{ name | titlecase }}</span>

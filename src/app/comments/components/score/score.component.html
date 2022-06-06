@@ -1,4 +1,4 @@
-<div class="inline-flex items-center bg-muted p-6 rounded-lg" [fxLayout]="direction === 'vertical' ? 'column' : 'row'" [fxLayoutGap]="direction === 'vertical' ? '' : '10px'">
+<div fxLayout="row" fxLayoutAlign="start center" class="bg-muted p-6 rounded-lg" [fxLayout]="direction === 'vertical' ? 'column' : 'row'" [fxLayoutGap]="direction === 'vertical' ? '' : '10px'">
   <!-- plus -->
   <button [disabled]="disablePlus" (click)="upScore()" type="button"
     class="text-gray-400 px-2 disabled-opacity-20 hover-text-primary">

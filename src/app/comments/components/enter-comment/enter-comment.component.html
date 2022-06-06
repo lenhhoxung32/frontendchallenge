@@ -20,7 +20,7 @@
   </div>
   <!-- end send button -->
 
-  <div class="flex justify-between items-center" ngClass.gt-md="hidden">
+  <div fxLayout="row" fxLayoutAlign="space-between center" ngClass.gt-md="hidden">
     <!-- user -->
     <a *ngIf="user" routerLink="/">
       <img class="w-50 h-50 rounded-full" ngClass.sm="w-30 w-30" [src]="avatar" [alt]="user.username" />
